@@ -7,7 +7,7 @@ A trivial Dockerfile which installs all basic [Angular](https://angular.io/) dep
 * Local [Docker](https://www.docker.com/) installation
 
 ### Install
-To build this Docker image, simply run the command below, substituting the tag name with one of your choice if required.<br>
+To build this Docker image, simply run the command below, substituting the tag name with one of your choice (if required).<br>
 ```
 docker build . -t nextmetaphor/dockerized-alpine-angular
 ```
@@ -18,13 +18,13 @@ To execute a shell on the created image, simply run the command below.
 $ docker run -v $(pwd)/src:/var/opt/angular -p 4200:4200 -w /var/opt/angular -it nextmetaphor/dockerized-alpine-angular sh
 ```
 This will:
-* mount `$(pwd)/src` on the host machine to `/var/opt/angular` on the Docker container. <br>*Ensure that the `src` directory directory exists within the current directory - this will be where the Angular project will reside.*
+* mount `$(pwd)/src` on the host machine to `/var/opt/angular` on the Docker container. <br>*Ensure that the `src` directory directory exists within the current directory on the local machine - this will be where the Angular project will reside.*
 * publish port `4200` on the container to port `4200` on the host machine; we will use this to access the Angular application using a browser on [http://localhost:4200/](http://localhost:4200/)
 * set the working directory on the container to `/var/opt/angular`
-* execute a `sh` shell. The container will die when this shell process ends.
+* execute a `sh` shell. The container will die when this shell process is ended.
 
 ## Validation
-To test that the Angular Docker image has been created successfully, we will create a new sample app in the default working directory of the container, serve the site and verify from a browser.
+To test that the Angular Docker image has been created successfully, we can create a new sample app in the default working directory of the container, serve the site and verify from a browser.
 
 First, create a sample app called `sample-app` by executing the command `ng new sample-app` from the (current) `/var/opt/angular` directory within the container shell process:
 ```

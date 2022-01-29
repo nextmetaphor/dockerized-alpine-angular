@@ -17,7 +17,9 @@ To execute a shell on the created image, simply run the command below.
 ```
 $ docker run -v $(pwd)/src:/var/opt/angular -p 4200:4200 -w /var/opt/angular -it nextmetaphor/dockerized-alpine-angular sh
 ```
+
 This will:
+
 * mount `$(pwd)/src` on the host machine to `/var/opt/angular` on the Docker container. <br>*Ensure that the `src` directory directory exists within the current directory on the local machine - this will be where the Angular project will reside.*
 * publish port `4200` on the container to port `4200` on the host machine; we will use this to access the Angular application using a browser on [http://localhost:4200/](http://localhost:4200/)
 * set the working directory on the container to `/var/opt/angular`
@@ -29,40 +31,36 @@ To test that the Angular Docker image has been created successfully, we can crea
 First, create a sample app called `sample-app` by executing the command `ng new sample-app` from the (current) `/var/opt/angular` directory within the container shell process:
 ```
 /var/opt/angular # ng new sample-app
-
-installing ng
-  create .editorconfig
-  create README.md
-  create src/app/app.component.css
-  create src/app/app.component.html
-  create src/app/app.component.spec.ts
-  create src/app/app.component.ts
-  create src/app/app.module.ts
-  create src/assets/.gitkeep
-  create src/environments/environment.prod.ts
-  create src/environments/environment.ts
-  create src/favicon.ico
-  create src/index.html
-  create src/main.ts
-  create src/polyfills.ts
-  create src/styles.css
-  create src/test.ts
-  create src/tsconfig.app.json
-  create src/tsconfig.spec.json
-  create src/typings.d.ts
-  create .angular-cli.json
-  create e2e/app.e2e-spec.ts
-  create e2e/app.po.ts
-  create e2e/tsconfig.e2e.json
-  create .gitignore
-  create karma.conf.js
-  create package.json
-  create protractor.conf.js
-  create tsconfig.json
-  create tslint.json
-Installing packages for tooling via npm.
-Installed packages for tooling via npm.
-Project 'sample-app' successfully created.
+? Would you like to add Angular routing? No
+? Which stylesheet format would you like to use? CSS
+CREATE sample-app/README.md (1055 bytes)
+CREATE sample-app/.editorconfig (274 bytes)
+CREATE sample-app/.gitignore (548 bytes)
+CREATE sample-app/angular.json (3063 bytes)
+CREATE sample-app/package.json (1073 bytes)
+CREATE sample-app/tsconfig.json (863 bytes)
+CREATE sample-app/.browserslistrc (600 bytes)
+CREATE sample-app/karma.conf.js (1427 bytes)
+CREATE sample-app/tsconfig.app.json (287 bytes)
+CREATE sample-app/tsconfig.spec.json (333 bytes)
+CREATE sample-app/.vscode/extensions.json (130 bytes)
+CREATE sample-app/.vscode/launch.json (474 bytes)
+CREATE sample-app/.vscode/tasks.json (938 bytes)
+CREATE sample-app/src/favicon.ico (948 bytes)
+CREATE sample-app/src/index.html (295 bytes)
+CREATE sample-app/src/main.ts (372 bytes)
+CREATE sample-app/src/polyfills.ts (2338 bytes)
+CREATE sample-app/src/styles.css (80 bytes)
+CREATE sample-app/src/test.ts (745 bytes)
+CREATE sample-app/src/assets/.gitkeep (0 bytes)
+CREATE sample-app/src/environments/environment.prod.ts (51 bytes)
+CREATE sample-app/src/environments/environment.ts (658 bytes)
+CREATE sample-app/src/app/app.module.ts (314 bytes)
+CREATE sample-app/src/app/app.component.css (0 bytes)
+CREATE sample-app/src/app/app.component.html (23332 bytes)
+CREATE sample-app/src/app/app.component.spec.ts (968 bytes)
+CREATE sample-app/src/app/app.component.ts (214 bytes)
+✔ Packages installed successfully.
 ```
 
 Set the currently directory to the newly created `sample-app` directory:

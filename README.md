@@ -28,7 +28,7 @@ This will:
 ## Validation
 To test that the Angular Docker image has been created successfully, we can create a new sample app in the default working directory of the container, serve the site and verify from a browser.
 
-First, create a sample app called `sample-app` by executing the command `ng new sample-app` from the (current) `/var/opt/angular` directory within the container shell process:
+First, create a sample app called `sample-app` by executing the command `ng new sample-app --skip-git` from the (current) `/var/opt/angular` directory within the container shell process:
 ```
 /var/opt/angular # ng new sample-app
 ? Would you like to add Angular routing? No

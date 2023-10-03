@@ -9,13 +9,13 @@ A trivial Dockerfile which installs all basic [Angular](https://angular.io/) dep
 ### Install
 To build this Docker image, simply run the command below, substituting the tag name with one of your choice (if required).<br>
 ```
-docker build . -t nextmetaphor/dockerized-alpine-angular
+docker build . --no-cache --pull -t nextmetaphor/dockerized-alpine-angular
 ```
 
 ## Deployment
 To execute a shell on the created image, simply run the command below.
 ```
-$ docker run -v $(pwd)/src:/var/opt/angular -p 4200:4200 -w /var/opt/angular -it nextmetaphor/dockerized-alpine-angular sh
+docker run -v $(pwd)/src:/var/opt/angular -p 4200:4200 -w /var/opt/angular -it nextmetaphor/dockerized-alpine-angular sh
 ```
 
 This will:
